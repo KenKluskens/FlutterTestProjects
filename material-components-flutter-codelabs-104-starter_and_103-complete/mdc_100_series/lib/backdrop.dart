@@ -1,4 +1,5 @@
 import 'package:Shrine/login.dart';
+import 'package:Shrine/state_container.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
@@ -49,6 +50,12 @@ class _BackdropTitle extends AnimatedWidget {
 
   @override
   Widget build(BuildContext context) {
+    final container = StateContainer.of(context);
+    if(container.user == null){
+      print("NULL");
+    }else{
+      print(container.user.userId);
+    }
     final Animation<double> animation = this.listenable;
 
     return DefaultTextStyle(

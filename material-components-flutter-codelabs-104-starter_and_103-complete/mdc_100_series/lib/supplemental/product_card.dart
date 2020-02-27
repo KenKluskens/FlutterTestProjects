@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:Shrine/state_container.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -31,7 +32,7 @@ class ProductCard extends StatelessWidget {
     final NumberFormat formatter = NumberFormat.simpleCurrency(
         decimalDigits: 0, locale: Localizations.localeOf(context).toString());
     final ThemeData theme = Theme.of(context);
-
+    final container = StateContainer.of(context);
     final imageWidget = Image.asset(
       product.assetName,
       package: product.assetPackage,
@@ -62,7 +63,8 @@ class ProductCard extends StatelessWidget {
               ),
               SizedBox(height: 4.0),
               Text(
-                product == null ? '' : formatter.format(product.price),
+                container.getUser(),
+                //product == null ? '' : formatter.format(product.price),
                 style: theme.textTheme.caption,
               ),
             ],

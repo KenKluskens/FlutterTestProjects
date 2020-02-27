@@ -12,21 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
+import 'package:Shrine/state_container.dart';
 import 'package:flutter/material.dart';
 
+
 import 'colors.dart';
+
 
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
+
+
 class _LoginPageState extends State<LoginPage> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+ 
 
   @override
   Widget build(BuildContext context) {
+    final container = StateContainer.of(context);
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -83,6 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.all(Radius.circular(7.0)),
                   ),
                   onPressed: () {
+                    container.updateUserInfo(userId: _usernameController.text);
                     Navigator.pop(context);
                   },
                 ),

@@ -12,6 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:ffi';
+
+import 'package:Shrine/state_container.dart';
 import 'package:flutter/material.dart';
 import 'backdrop.dart';
 import 'model/product.dart';
@@ -20,6 +23,11 @@ import 'home.dart';
 import 'login.dart';
 import 'supplemental/cut_corners_border.dart';
 import 'category_menu_page.dart';
+
+
+
+
+
 
 
 
@@ -38,9 +46,12 @@ class _ShrineAppState extends State<ShrineApp> {
     });
   }
 
+  
 
   @override
   Widget build(BuildContext context) {
+    
+    
     return MaterialApp(
       title: 'Shrine',
       home: Backdrop(
